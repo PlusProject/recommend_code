@@ -77,11 +77,13 @@ def paper_score(input, w1, w2):
   
   doctor_paper_data = doctor_totaldisease.copy()
 
+#tf-idf를 실행할 때 .이 자동으로 tokenize되는 거를 방지하기 위한 전처리
   def preprocess(text):
     text = text.replace('.', "dot")
 
     return text
 
+#의료진이 검색 질병 코드와 겹치는 논문을 얼마나 썼는가에 대한 함수
   def overlap_paper(text):
     paper_overlap = 0
     papers = text.split('/ ')
@@ -92,7 +94,7 @@ def paper_score(input, w1, w2):
     
     return paper_overlap
 
-
+# 검색 질병 코드 각각이 의료진 논문 질병 코드와 몇 번 겹치는지 알기 위한 함수
   def overlap_keyword(text):
     words_count = {}
 
@@ -124,6 +126,7 @@ def paper_score(input, w1, w2):
   target_text = [ preprocess(t) for t in text ]
   target_text.append(target_input)
 
+#tf-idf 를 통해 질병 유사도를 구함
   doctors = pd.DataFrame({'name': target_name,
                           'text': target_text})
 
