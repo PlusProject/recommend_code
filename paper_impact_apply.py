@@ -1,3 +1,26 @@
+#import
+import pymysql
+from sqlalchemy import create_engine
+import MySQLdb
+from konlpy.tag import Okt 
+okt = Okt()
+import numpy as np
+import pandas as pd
+import os
+import seaborn as sns
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import nltk
+import re
+from ast import literal_eval
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from nltk.stem import PorterStemmer
+stemmer = PorterStemmer()
+from pandas import Series, DataFrame
+import nltk
+
+
 #sql 연결 코드
 
 host = 'database-skku.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com'
@@ -124,8 +147,6 @@ def paper_score(input, w1, w2):
 
   return doctor_paper_data
 
-
-paper_score("I50.9, I42.2", 1, 3)
 
 #의료진이 실시한 임상시험에 대해 점수를 매기는 함수
 
