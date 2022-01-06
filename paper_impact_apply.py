@@ -23,10 +23,10 @@ import nltk
 
 #sql 연결 코드
 
-host = 'database-skku.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com'
-iid ='admin'
-pw = 'tjdrbsrhkseo123'
-db_name = 'dongwan'
+host = '호스트'
+iid ='아이디'
+pw = '비밀번호'
+db_name = ''
 conn = pymysql.connect(host=host, user= iid, password=pw, db=db_name, charset='utf8')
 
 curs = conn.cursor(pymysql.cursors.DictCursor)
