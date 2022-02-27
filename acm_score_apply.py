@@ -5,14 +5,14 @@ pymysql.install_as_MySQLdb()
 
 ## 데이터베이스 연결
 # doctor_all2 테이블 가져오기(의료진 정보 테이블)
-connect = pymysql.connect(host='database-skku.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com', user='admin',
-                          password='tjdrbsrhkseo123', db='medii', charset='utf8mb4')
+connect = pymysql.connect(host='(주소)', user='(아이디)',
+                          password='(비밀번호)', db='medii', charset='utf8mb4')
 cursor = connect.cursor()
 df = pd.read_sql_query('select * from medii.doctor_all2', connect)
 
 # totaldisease 테이블 가져오기(질병코드-질병정보 매칭)
-conn = pymysql.connect(host='database-skku.c6dzc5dnqf69.ap-northeast-2.rds.amazonaws.com', user='admin',
-                       password='tjdrbsrhkseo123', db='medii', charset='utf8mb4')
+conn = pymysql.connect(host='(주소)', user='(아이디)',
+                          password='(비밀번호)', db='medii', charset='utf8mb4')
 curs = conn.cursor(pymysql.cursors.DictCursor)
 sql = """SELECT * FROM TotalDisease"""
 curs.execute(sql)
